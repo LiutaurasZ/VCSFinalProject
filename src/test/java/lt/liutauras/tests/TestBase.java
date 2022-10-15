@@ -1,5 +1,6 @@
 package lt.liutauras.tests;
 
+import lt.liutauras.pages.Common;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
