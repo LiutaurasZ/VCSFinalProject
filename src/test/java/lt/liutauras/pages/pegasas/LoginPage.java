@@ -19,4 +19,33 @@ public class LoginPage {
         Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formNaujiemsPrenumeratoriams);
         Common.clickElement(Locators.Pegasas.Login.buttonClose);
     }
+
+
+
+
+    public static void enterLoginEmail(String loginEmail) {
+            Common.sendKeysToElement(
+                    loginEmail,
+                    Locators.Pegasas.Login.loginEmailInput
+            );
+    }
+
+    public static void enterLoginPassword(String loginPassword) {
+        Common.sendKeysToElement(
+                loginPassword,
+                Locators.Pegasas.Login.loginPasswordInput
+        );
+    }
+
+    public static void clickButtonSubmit() {
+        Common.clickElement(
+                Locators.Pegasas.Login.buttonSubmit
+        );
+    }
+
+    public static String readAccountStatus() {
+        return Common.getElementText(
+                Locators.Pegasas.Login.accountStatus
+        );
+    }
 }
