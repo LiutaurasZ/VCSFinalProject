@@ -22,6 +22,9 @@ public class Locators {
             public static By accountStatus = By.xpath("//button[@id='dropdown-basic']");
         }
 
+        public static class Knygos {
+            public static By knygosElement = By.xpath("//a[@id='knygos/-604']");
+        }
 
     }
 }
