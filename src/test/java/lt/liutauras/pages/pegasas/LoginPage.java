@@ -11,7 +11,12 @@ public class LoginPage {
     }
 
     public static void closePrivacyConfirmation() {
-        //Common.waitForElementWithVisibilityChange(Locators.Tv3.Home.formPrivacyConfirmation);
-        Common.clickElement(Locators.Pegasas.Login.buttonConfirm);
+        Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formPrivacyConfirmation);
+        Common.clickElement(Locators.Pegasas.Login.buttonAllowAll);
+    }
+
+    public static void closeNaujiemsPrenumeratoriamsForm() {
+        Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formNaujiemsPrenumeratoriams);
+        Common.clickElement(Locators.Pegasas.Login.buttonClose);
     }
 }
