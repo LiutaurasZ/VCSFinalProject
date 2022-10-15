@@ -2,6 +2,7 @@ package lt.liutauras.pages.pegasas;
 
 import lt.liutauras.pages.Common;
 import lt.liutauras.pages.Locators;
+import org.openqa.selenium.NoSuchElementException;
 
 public class LoginPage {
 
@@ -19,9 +20,6 @@ public class LoginPage {
         Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formNaujiemsPrenumeratoriams);
         Common.clickElement(Locators.Pegasas.Login.buttonClose);
     }
-
-
-
 
     public static void enterLoginEmail(String loginEmail) {
             Common.sendKeysToElement(
@@ -44,8 +42,16 @@ public class LoginPage {
     }
 
     public static String readAccountStatus() {
-        return Common.getElementText(
-                Locators.Pegasas.Login.accountStatus
-        );
+        try {
+            return Common.getElementText(
+                    Locators.Pegasas.Login.accountStatus
+            );
+        } catch (NoSuchElementException e) {
+            return "No such element";
+        }
+
+
+
+
     }
 }
