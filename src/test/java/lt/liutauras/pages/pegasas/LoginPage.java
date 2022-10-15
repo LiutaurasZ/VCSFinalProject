@@ -3,6 +3,7 @@ package lt.liutauras.pages.pegasas;
 import lt.liutauras.pages.Common;
 import lt.liutauras.pages.Locators;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 
 public class LoginPage {
 
@@ -17,8 +18,12 @@ public class LoginPage {
     }
 
     public static void closeNaujiemsPrenumeratoriamsForm() {
-        Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formNaujiemsPrenumeratoriams);
-        Common.clickElement(Locators.Pegasas.Login.buttonClose);
+        try {
+            Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formNaujiemsPrenumeratoriams);
+            Common.clickElement(Locators.Pegasas.Login.buttonClose);
+        } catch (TimeoutException e){}
+
+
     }
 
     public static void enterLoginEmail(String loginEmail) {
