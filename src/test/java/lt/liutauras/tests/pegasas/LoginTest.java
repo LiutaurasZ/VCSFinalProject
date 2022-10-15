@@ -30,7 +30,7 @@ public class LoginTest extends TestBase {
         LoginPage.clickButtonSubmit();
         actualAccountStatus = LoginPage.readAccountStatus();
 
-        Assert.assertEquals(expectedAccountStatus,actualAccountStatus);
+        Assert.assertEquals(actualAccountStatus, expectedAccountStatus);
     }
 
 }
