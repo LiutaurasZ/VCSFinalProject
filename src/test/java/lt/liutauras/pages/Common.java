@@ -1,5 +1,9 @@
 package lt.liutauras.pages;
 
+import lt.liutauras.utils.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 public class Common {
 
 
@@ -22,6 +26,15 @@ public class Common {
             e.printStackTrace();
         }
     }
+
+    public static WebElement getElement(By locator) {
+        return Driver.getDriver().findElement(locator);
+    }
+
+    public static void clickElement(By locator){
+        getElement(locator).click();
+    }
+
 
 
 
