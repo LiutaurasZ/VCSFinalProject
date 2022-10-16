@@ -21,8 +21,7 @@ public class LoginPage {
         try {
             Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formNaujiemsPrenumeratoriams);
             Common.clickElement(Locators.Pegasas.Login.buttonClose);
-        } catch (TimeoutException e){}
-
+        } catch (TimeoutException ignored){}
 
     }
 
@@ -54,9 +53,6 @@ public class LoginPage {
         } catch (NoSuchElementException e) {
             return "No such element";
         }
-
-
-
 
     }
 }
