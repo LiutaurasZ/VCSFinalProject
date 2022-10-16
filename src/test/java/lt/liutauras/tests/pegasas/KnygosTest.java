@@ -41,4 +41,29 @@ public class KnygosTest extends TestBase {
     }
 
 
+    @Test
+    private void testPriceFilter(){
+        String actualPriceFrom = "25";
+        String actualPriceTo = "55";
+        String expectedPriceFrom ="";
+        String expectedPriceTo ="";
+
+        KnygosPage.performDoubleClickOninputPriceFrom();
+        KnygosPage.inputPriceFrom(actualPriceFrom);
+        KnygosPage.performDoubleClickOninputPriceTo();
+        KnygosPage.inputPriceTo(actualPriceTo);
+     //   KnygosPage.SortPriceFromMinToMax();
+        // Get first min price book
+
+       // KnygosPage.SortPriceFromMaxToMin();
+        // get firs Max price book
+
+      //  Assert.assertTrue(Integer.parseInt(actualPriceFrom) <= Integer.parseInt(expectedPriceFrom));
+
+        //Assert.assertTrue(Integer.parseInt(actualPriceTo) >= Integer.parseInt(expectedPriceTo));
+
+
+    }
+
+
 }

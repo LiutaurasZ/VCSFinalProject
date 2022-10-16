@@ -42,4 +42,31 @@ public class KnygosPage {
     public static String readCartCounter() {
         return Common.getElementText(Locators.Pegasas.Knygos.cartCounter);
     }
+
+    public static void performDoubleClickOninputPriceFrom() {
+        Common.doubleClickByActions(
+                Locators.Pegasas.Knygos.priceFromInput
+        );
+    }
+
+    public static void inputPriceFrom(String PriceFrom) {
+        Common.sendKeysToElement(
+                PriceFrom,
+                Locators.Pegasas.Knygos.priceFromInput
+        );
+    }
+
+
+    public static void performDoubleClickOninputPriceTo() {
+        Common.doubleClickByActions(
+                Locators.Pegasas.Knygos.priceToInput
+        );
+    }
+    public static void inputPriceTo(String PriceTo) {
+        Common.sendKeysToElement(
+                PriceTo,
+                Locators.Pegasas.Knygos.priceToInput
+        );
+    }
+
 }

@@ -6,10 +6,11 @@ public class Locators {
 
     public static class Pegasas {
 
+        public static By formPrivacyConfirmation = By.xpath("//div[@id='CybotCookiebotDialog']");
+
         public static class Login {
             public static By buttonAllowAll = By.xpath(
                     "//a[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']");
-            public static By formPrivacyConfirmation = By.xpath("//div[@id='CybotCookiebotDialog']");
 
             public static By buttonClose = By.xpath(
                     "//button[@id='omnisend-form-633c09919a4d16cd5e1876af-close-action']");
@@ -23,14 +24,18 @@ public class Locators {
         }
 
         public static class Knygos {
+            public static By buttonAllowOptions = By.xpath(
+                    "//a[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection']");
             public static By bookElement = By.xpath("//div[@id='lupa-search-result-product-card'][1]");
             public static By buttonAddToCart = By.xpath(
                     "//div[@class='ProductActions-productActions-1U0']/button[@type='button']");
             public static By bookAmountInput = By.xpath("//input[@aria-label='produkto kiekis']");
-
             public static By cartCounter = By.xpath(
                     "//*[@class='d-none d-xl-block']//span[@class='MiniCart-cartCount-2UO']"
             );
+
+            public static By priceFromInput = By.xpath("//div[@class='lupa-stats-from']/input");
+            public static By priceToInput = By.xpath("//div[@class='lupa-stats-to']/input");
         }
 
     }
