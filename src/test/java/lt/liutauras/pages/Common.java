@@ -3,6 +3,7 @@ package lt.liutauras.pages;
 import lt.liutauras.utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -51,5 +52,13 @@ public class Common {
         return getElement(locator).getText();
     }
 
+    public static void doubleClickByActions(By locator) {
+        WebElement element = getElement(locator);
+
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element);
+        action.doubleClick();
+        action.perform();
+    }
 
 }

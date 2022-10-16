@@ -23,7 +23,14 @@ public class Locators {
         }
 
         public static class Knygos {
-            public static By knygosElement = By.xpath("//a[@id='knygos/-604']");
+            public static By bookElement = By.xpath("//div[@id='lupa-search-result-product-card'][1]");
+            public static By buttonAddToCart = By.xpath(
+                    "//div[@class='ProductActions-productActions-1U0']/button[@type='button']");
+            public static By bookAmountInput = By.xpath("//input[@aria-label='produkto kiekis']");
+
+            public static By cartCounter = By.xpath(
+                    "//*[@class='d-none d-xl-block']//span[@class='MiniCart-cartCount-2UO']"
+            );
         }
 
     }

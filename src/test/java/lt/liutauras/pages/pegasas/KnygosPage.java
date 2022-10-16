@@ -9,7 +9,28 @@ public class KnygosPage {
         Common.openUrl(url);
     }
 
-    public static void clickToOpenKnygosPage() {
-        Common.clickElement(Locators.Pegasas.Knygos.knygosElement);
+    public static void clickBook() {
+        Common.clickElement(Locators.Pegasas.Knygos.bookElement);
+    }
+
+    public static void addBookToCart() {
+        Common.clickElement(Locators.Pegasas.Knygos.buttonAddToCart);
+    }
+
+    public static void performDoubleClickOnInputBooksAmount() {
+        Common.doubleClickByActions(
+                Locators.Pegasas.Knygos.bookAmountInput
+        );
+    }
+
+    public static void inputBooksAmount(String booksAmount) {
+        Common.sendKeysToElement(
+                booksAmount,
+                Locators.Pegasas.Knygos.bookAmountInput
+        );
+    }
+
+    public static String readCartCounter() {
+        return Common.getElementText(Locators.Pegasas.Knygos.cartCounter);
     }
 }
