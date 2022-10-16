@@ -2,6 +2,7 @@ package lt.liutauras.pages.pegasas;
 
 import lt.liutauras.pages.Common;
 import lt.liutauras.pages.Locators;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 
@@ -13,8 +14,10 @@ public class LoginPage {
     }
 
     public static void closePrivacyConfirmation() {
-        Common.waitForElementWithVisibilityChange(Locators.Pegasas.Login.formPrivacyConfirmation);
-        Common.clickElement(Locators.Pegasas.Login.buttonAllowAll);
+        Common.waitForElementToBeClickable(Locators.Pegasas.formPrivacyConfirmation);
+        try {
+            Common.clickElement(Locators.Pegasas.Login.buttonAllowAll);
+        } catch (ElementClickInterceptedException ignored){}
     }
 
     public static void closeNaujiemsPrenumeratoriamsForm() {
@@ -26,10 +29,10 @@ public class LoginPage {
     }
 
     public static void enterLoginEmail(String loginEmail) {
-            Common.sendKeysToElement(
-                    loginEmail,
-                    Locators.Pegasas.Login.loginEmailInput
-            );
+        Common.sendKeysToElement(
+                loginEmail,
+                Locators.Pegasas.Login.loginEmailInput
+        );
     }
 
     public static void enterLoginPassword(String loginPassword) {
