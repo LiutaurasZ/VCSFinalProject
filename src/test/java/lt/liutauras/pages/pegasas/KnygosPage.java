@@ -2,11 +2,20 @@ package lt.liutauras.pages.pegasas;
 
 import lt.liutauras.pages.Common;
 import lt.liutauras.pages.Locators;
+import org.openqa.selenium.ElementClickInterceptedException;
 
 public class KnygosPage {
 
     public static void open(String url) {
         Common.openUrl(url);
+    }
+
+    public static void closePrivacyConfirmation() {
+        Common.waitForElementToBeClickable(Locators.Pegasas.formPrivacyConfirmation);
+        try {
+            Common.clickElement(Locators.Pegasas.Knygos.buttonAllowOptions);
+        } catch (ElementClickInterceptedException ignored){}
+
     }
 
     public static void clickBook() {
