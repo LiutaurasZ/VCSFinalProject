@@ -4,6 +4,7 @@ import lt.liutauras.pages.pegasas.KnygosPage;
 import lt.liutauras.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class KnygosTest extends TestBase {
@@ -13,11 +14,20 @@ public class KnygosTest extends TestBase {
     public void setUp() {
         super.setUp();
         KnygosPage.open("https://www.pegasas.lt/knygos/");
+        KnygosPage.closePrivacyConfirmation();
     }
 
-    @Test
-    private void testAddBookToCart() {
-        String expectedBooksAmount = "2";
+    @DataProvider(name = "DataProviderForAddBookToCart")
+    public Object[][] provideDataForAddBookCarts() {
+        return new Object[][]{
+                {"3"},
+                {"1"},
+                {"4"},
+        };
+    }
+
+    @Test(dataProvider = "DataProviderForAddBookToCart")
+    private void testAddBookToCart(String expectedBooksAmount) {
         String actualBookAmount;
 
         KnygosPage.clickBook();
