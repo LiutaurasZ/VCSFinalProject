@@ -45,6 +45,11 @@ public class Common {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public static void waitForElementToBeClickable(By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(6));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
     public static void sendKeysToElement(String keys, By locator) {
         getElement(locator).sendKeys(keys);
     }
