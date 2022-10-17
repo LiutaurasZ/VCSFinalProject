@@ -48,7 +48,7 @@ public class KnygosPage {
 
         Common.clearInputField(locator);
         Common.sendKeysToElement(value, locator);
-        Common.sendKeyboardKeysToElement(Keys.ENTER,locator);
+        Common.sendSpecialKeysToElement(Keys.ENTER,locator);
         Common.waitForElementAttributeToBe(Locators.Pegasas.Knygos.priceSliderFrom, attributeName, value);
     }
 
@@ -58,7 +58,7 @@ public class KnygosPage {
 
         Common.clearInputField(locator);
         Common.sendKeysToElement(value, locator);
-        Common.sendKeyboardKeysToElement(Keys.ENTER, locator);
+        Common.sendSpecialKeysToElement(Keys.ENTER, locator);
         Common.waitForElementAttributeToBe(Locators.Pegasas.Knygos.priceSliderTo, attributeName, value);
     }
 
