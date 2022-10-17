@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -60,6 +61,15 @@ public class Common {
         return getElement(locator).getText();
     }
 
+    public static void doubleClickByActions(By locator) {
+        WebElement element = getElement(locator);
+
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element);
+        action.doubleClick();
+        action.perform();
+    }
+
 
     public static void selectOptionByValue(By locator, String value) {
         WebElement webElement = getElement(locator);
@@ -71,7 +81,7 @@ public class Common {
         getElement(locator).clear();
     }
 
-    public static void sendKeyboardKeysToElement(Keys value, By locator) {
+    public static void sendSpecialKeysToElement(Keys value, By locator) {
         getElement(locator).sendKeys(value);
     }
 
@@ -80,7 +90,7 @@ public class Common {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeToBe(locator, attribute, value));
     }
-
+          //   mesti lauk
     public static void waitForElementIsAccesible(By locator) {
       //  WebElement webElement = getElement(locator);
         FluentWait wait = new FluentWait(Driver.getDriver());
