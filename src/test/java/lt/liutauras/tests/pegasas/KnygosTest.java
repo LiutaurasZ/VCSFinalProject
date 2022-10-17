@@ -15,7 +15,7 @@ public class KnygosTest extends TestBase {
     public void setUp() {
         super.setUp();
         KnygosPage.open("https://www.pegasas.lt/knygos/");
-        KnygosPage.closePrivacyConfirmation();                           ///// ?????  neveikia
+        KnygosPage.closePrivacyConfirmation();                          
     }
 
     @DataProvider(name = "DataProviderForAddBookToCart")
