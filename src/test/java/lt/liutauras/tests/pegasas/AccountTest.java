@@ -1,6 +1,5 @@
 package lt.liutauras.tests.pegasas;
 
-import lt.liutauras.pages.Common;
 import lt.liutauras.pages.pegasas.AccountPage;
 import lt.liutauras.tests.TestBase;
 import org.testng.Assert;
@@ -50,8 +49,6 @@ public class AccountTest extends TestBase {
 
         Assert.assertEquals(actualUpdateStatus, expectedUpdateStatus);
 
-
-        Common.sleep(3000);
     }
 
 
