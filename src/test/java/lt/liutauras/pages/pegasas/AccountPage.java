@@ -35,12 +35,12 @@ public class AccountPage {
     }
 
     public static void clickAccountEditButton() {
+        Common.waitForElementToBeClickable(Locators.Pegasas.Account.accountEditButton);
         Common.clickElement(Locators.Pegasas.Account.accountEditButton);
     }
 
     public static void enterUserFirstName(String userFirstName) {
-        Common.waitForElementToBeClickable(Locators.Pegasas.Account.userFirstNameInput);
-        Common.doubleClickByActions(Locators.Pegasas.Account.userFirstNameInput);
+        Common.sendKeysToElement(Keys.CONTROL+"a", Locators.Pegasas.Account.userFirstNameInput);
         Common.sendKeysToElement(
                 userFirstName,
                 Locators.Pegasas.Account.userFirstNameInput
@@ -48,7 +48,7 @@ public class AccountPage {
     }
 
     public static void enterUserLastName(String userLastName) {
-        Common.doubleClickByActions(Locators.Pegasas.Account.userLastNameInput);
+        Common.sendKeysToElement(Keys.CONTROL+"a", Locators.Pegasas.Account.userLastNameInput);
              Common.sendKeysToElement(
                 userLastName,
                 Locators.Pegasas.Account.userLastNameInput
@@ -64,7 +64,7 @@ public class AccountPage {
     }
 
     public static void enterUserPassword(String userPassword) {
-        Common.doubleClickByActions(Locators.Pegasas.Account.userPasswordInput);
+        Common.sendKeysToElement(Keys.CONTROL+"a", Locators.Pegasas.Account.userPasswordInput);
         Common.sendKeysToElement(
                 userPassword,
                 Locators.Pegasas.Account.userPasswordInput
