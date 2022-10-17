@@ -1,5 +1,6 @@
 package lt.liutauras.tests.pegasas;
 
+import lt.liutauras.pages.Common;
 import lt.liutauras.pages.pegasas.KnygosPage;
 import lt.liutauras.tests.TestBase;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class KnygosTest extends TestBase {
     public void setUp() {
         super.setUp();
         KnygosPage.open("https://www.pegasas.lt/knygos/");
-        KnygosPage.closePrivacyConfirmation();
+        KnygosPage.closePrivacyConfirmation();                           ///// ?????  neveikia
     }
 
     @DataProvider(name = "DataProviderForAddBookToCart")
@@ -31,7 +32,6 @@ public class KnygosTest extends TestBase {
         String actualBookAmount;
 
         KnygosPage.clickBook();
-        KnygosPage.performDoubleClickOnInputBooksAmount();
         KnygosPage.inputBooksAmount(expectedBooksAmount);
         KnygosPage.addBookToCart();
         actualBookAmount = KnygosPage.readCartCounter();
@@ -41,27 +41,50 @@ public class KnygosTest extends TestBase {
     }
 
 
-    @Test
-    private void testPriceFilter(){
-        String actualPriceFrom = "25";
-        String actualPriceTo = "55";
-        String expectedPriceFrom ="";
-        String expectedPriceTo ="";
+    @DataProvider(name = "DataProviderForPriceFilterTest")
+    public Object[][] provideDataForPriceFilter() {
+        return new Object[][]{
+                {"15", "60"},
+                {"34", "50"},
+                {"4", "10"},
+        };
+    }
 
-        KnygosPage.performDoubleClickOninputPriceFrom();
-        KnygosPage.inputPriceFrom(actualPriceFrom);
-        KnygosPage.performDoubleClickOninputPriceTo();
-        KnygosPage.inputPriceTo(actualPriceTo);
-     //   KnygosPage.SortPriceFromMinToMax();
-        // Get first min price book
+    @Test(dataProvider = "DataProviderForPriceFilterTest")
+    private void testPriceFilter(String priceFrom, String priceTo) {
 
-       // KnygosPage.SortPriceFromMaxToMin();
-        // get firs Max price book
+        String priceOrderFromMinToMax = "priceAscSignedOut";
+        String priceOrderFromMaxToMin = "priceDescSignedOut";
+        String actualPriceFrom;
+        String actualPriceTo;
 
-      //  Assert.assertTrue(Integer.parseInt(actualPriceFrom) <= Integer.parseInt(expectedPriceFrom));
+        KnygosPage.inputPriceFrom(priceFrom);
+        KnygosPage.inputPriceTo(priceTo);
 
-        //Assert.assertTrue(Integer.parseInt(actualPriceTo) >= Integer.parseInt(expectedPriceTo));
+        KnygosPage.clickSortOrderFromDropdown(priceOrderFromMinToMax);
+        // laukti kol atsiras 1 elemetas
 
+        actualPriceFrom = KnygosPage.readPriceOfFirstBookOnList()
+                .replace(" €", "")
+                .replace(",", ".");
+
+        KnygosPage.clickSortOrderFromDropdown(priceOrderFromMaxToMin);
+
+        // laukti kol pirmas elementas
+        actualPriceTo = KnygosPage.readPriceOfFirstBookOnList()
+                .replace(" €", "")
+                .replace(",", ".");
+
+        Assert.assertTrue(Double.parseDouble(actualPriceFrom) >= Double.parseDouble(priceFrom),
+                String.format("Actual [%s]; Expected >= [%s] ",
+                        actualPriceFrom,
+                        priceFrom)
+        );
+        Assert.assertTrue(Double.parseDouble(actualPriceTo) <= Double.parseDouble(priceTo),
+                String.format("Actual [%s]; Expected <= [%s] ",
+                        actualPriceTo,
+                        priceTo)
+        );
 
     }
 
