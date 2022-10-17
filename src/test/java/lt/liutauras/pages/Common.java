@@ -3,11 +3,9 @@ package lt.liutauras.pages;
 import lt.liutauras.utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,7 +37,7 @@ public class Common {
         return Driver.getDriver().findElement(locator);
     }
 
-    public static void clickElement(By locator){
+    public static void clickElement(By locator) {
         getElement(locator).click();
     }
 
@@ -52,6 +50,11 @@ public class Common {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(6));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+//    public static void waitForElementToBeSelected(By locator) {
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.textToBePresentInElementValue(locator,""));
+//    }
+
 
     public static void sendKeysToElement(String keys, By locator) {
         getElement(locator).sendKeys(keys);
@@ -85,18 +88,10 @@ public class Common {
         getElement(locator).sendKeys(value);
     }
 
-    public static void waitForElementAttributeToBe(By locator, String attribute, String value)  {
+    public static void waitForElementAttributeToBe(By locator, String attribute, String value) {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeToBe(locator, attribute, value));
     }
-          //   mesti lauk
-    public static void waitForElementIsAccesible(By locator) {
-      //  WebElement webElement = getElement(locator);
-        FluentWait wait = new FluentWait(Driver.getDriver());
-        wait.withTimeout(Duration.ofSeconds(7));
-        wait.pollingEvery(Duration.ofMillis(500));
-        wait.ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-    }
+
 }
