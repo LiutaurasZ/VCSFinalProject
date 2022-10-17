@@ -36,7 +36,32 @@ public class Locators {
 
             public static By priceFromInput = By.xpath("//div[@class='lupa-stats-from']/input");
             public static By priceToInput = By.xpath("//div[@class='lupa-stats-to']/input");
+            public static By dropDownToSort = By.xpath(
+                    "//div[@id='lupa-search-results-products']" +
+                            "//select[@data-cy='lupa-sort-select-dropdown']");
+            public static By firstItemOnList = By.xpath(
+                    "//div[@id='lupa-search-result-product-card'][1]" +
+                            "//div[@data-cy='lupa-search-results-product-regular-price']");
+            public static By priceSliderFrom = By.xpath("//div[@role='slider'][1]");
+            public static By priceSliderTo = By.xpath("//div[@role='slider'][2]");
+
         }
+
+        public static class Account {
+            public static By loginEmailInput = By.xpath("//input[@data-cy='sign-in-form-email']");
+            public static By loginPasswordInput = By.xpath("//input[@data-cy='sign-in-form-password']");
+            public static By buttonSubmit = By.xpath("//button[@data-cy='button-sign-in-form-submit']");
+
+            public static By DropDownList = By.xpath("//button[@id ='dropdown-basic']");
+            public static By accountInfoListOption = By.xpath("//a[@href='/customer/account']");
+            public static By accountEditButton = By.xpath("//button[text()='Redaguoti']");
+            public static By userFirstNameInput = By.xpath("//input[@name='firstname']");
+            public static By userLastNameInput = By.xpath("//input[@name='lastname']");
+            public static By userEmailInput = By.xpath("//input[@name='phone_number']");
+            public static By userPasswordInput = By.xpath("//input[@name='password']");
+            public static By ButtonSave = By.xpath("//button[@data-cy='form-confirm-button']");
+        }
+
 
     }
 }
