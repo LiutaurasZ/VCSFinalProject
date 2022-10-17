@@ -57,9 +57,10 @@ public class Locators {
             public static By accountEditButton = By.xpath("//button[text()='Redaguoti']");
             public static By userFirstNameInput = By.xpath("//input[@name='firstname']");
             public static By userLastNameInput = By.xpath("//input[@name='lastname']");
-            public static By userEmailInput = By.xpath("//input[@name='phone_number']");
+            public static By userPhoneInput = By.xpath("//input[@name='phone_number']");
             public static By userPasswordInput = By.xpath("//input[@name='password']");
-            public static By ButtonSave = By.xpath("//button[@data-cy='form-confirm-button']");
+            public static By buttonSave = By.xpath("//button[@data-cy='form-confirm-button']");
+            public static By popupElement = By.xpath("//span[@data-cy='Toast-message']");
         }
 
 

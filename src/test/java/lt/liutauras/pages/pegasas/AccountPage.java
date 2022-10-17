@@ -2,10 +2,22 @@ package lt.liutauras.pages.pegasas;
 
 import lt.liutauras.pages.Common;
 import lt.liutauras.pages.Locators;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 
 public class AccountPage {
     public static void open(String url) {
         Common.openUrl(url);
+    }
+
+    public static void closePrivacyConfirmation() {
+        Common.waitForElementToBeClickable(Locators.Pegasas.formPrivacyConfirmation);
+        try {
+            Common.clickElement(Locators.Pegasas.Knygos.buttonAllowOptions);
+        } catch (ElementClickInterceptedException ignored) {
+        }
+
     }
 
     public static void loginToAccount(String loginEmail, String loginPassword) {
@@ -22,12 +34,13 @@ public class AccountPage {
         Common.clickElement(Locators.Pegasas.Account.accountInfoListOption);
     }
 
-    public static void clicAccountEditButton() {
+    public static void clickAccountEditButton() {
         Common.clickElement(Locators.Pegasas.Account.accountEditButton);
     }
 
     public static void enterUserFirstName(String userFirstName) {
-        Common.clearInputField(Locators.Pegasas.Account.userFirstNameInput);
+        Common.waitForElementToBeClickable(Locators.Pegasas.Account.userFirstNameInput);
+        Common.doubleClickByActions(Locators.Pegasas.Account.userFirstNameInput);
         Common.sendKeysToElement(
                 userFirstName,
                 Locators.Pegasas.Account.userFirstNameInput
@@ -35,23 +48,23 @@ public class AccountPage {
     }
 
     public static void enterUserLastName(String userLastName) {
-        Common.clearInputField(Locators.Pegasas.Account.userLastNameInput);
-        Common.sendKeysToElement(
+        Common.doubleClickByActions(Locators.Pegasas.Account.userLastNameInput);
+             Common.sendKeysToElement(
                 userLastName,
                 Locators.Pegasas.Account.userLastNameInput
         );
     }
 
-    public static void enterUserEmail(String userPhoneNo) {
-        Common.clearInputField(Locators.Pegasas.Account.userEmailInput);
+    public static void enterUserPhone(String userPhoneNo) {
+        Common.sendKeysToElement(Keys.CONTROL+"a", Locators.Pegasas.Account.userPhoneInput);
         Common.sendKeysToElement(
                 userPhoneNo,
-                Locators.Pegasas.Account.userEmailInput
+                Locators.Pegasas.Account.userPhoneInput
         );
     }
 
     public static void enterUserPassword(String userPassword) {
-        Common.clearInputField(Locators.Pegasas.Account.userPasswordInput);
+        Common.doubleClickByActions(Locators.Pegasas.Account.userPasswordInput);
         Common.sendKeysToElement(
                 userPassword,
                 Locators.Pegasas.Account.userPasswordInput
@@ -59,6 +72,17 @@ public class AccountPage {
     }
 
     public static void clickSaveButton() {
-        Common.clickElement(Locators.Pegasas.Account.ButtonSave);
+        Common.clickElement(Locators.Pegasas.Account.buttonSave);
     }
+
+    public static String readUpdateStatus() {
+        try {
+            return Common.getElementText(
+                    Locators.Pegasas.Account.popupElement
+            );
+        } catch (NoSuchElementException e) {
+            return "Update status element is not accessible";
+        }
+    }
+
 }
