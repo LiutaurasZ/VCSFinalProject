@@ -1,6 +1,5 @@
 package lt.liutauras.tests.pegasas;
 
-import lt.liutauras.pages.Common;
 import lt.liutauras.pages.pegasas.KnygosPage;
 import lt.liutauras.tests.TestBase;
 import org.testng.Assert;
@@ -62,15 +61,11 @@ public class KnygosTest extends TestBase {
         KnygosPage.inputPriceTo(priceTo);
 
         KnygosPage.clickSortOrderFromDropdown(priceOrderFromMinToMax);
-        // laukti kol atsiras 1 elemetas
-
         actualPriceFrom = KnygosPage.readPriceOfFirstBookOnList()
                 .replace(" €", "")
                 .replace(",", ".");
 
         KnygosPage.clickSortOrderFromDropdown(priceOrderFromMaxToMin);
-
-        // laukti kol pirmas elementas
         actualPriceTo = KnygosPage.readPriceOfFirstBookOnList()
                 .replace(" €", "")
                 .replace(",", ".");

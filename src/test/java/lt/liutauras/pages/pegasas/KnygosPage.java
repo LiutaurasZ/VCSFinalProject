@@ -71,8 +71,7 @@ public class KnygosPage {
     }
 
     public static String readPriceOfFirstBookOnList() {
-       // Common.waitForElementToBeClickable(Locators.Pegasas.Knygos.firstItemOnList);
-        Common.waitForElementIsAccesible(Locators.Pegasas.Knygos.firstItemOnList);
+        Common.waitForElementToBeClickable(Locators.Pegasas.Knygos.firstItemOnList);
         return Common.getElementText(Locators.Pegasas.Knygos.firstItemOnList);
 
     }

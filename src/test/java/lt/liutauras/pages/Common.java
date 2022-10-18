@@ -50,11 +50,6 @@ public class Common {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(6));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-//    public static void waitForElementToBeSelected(By locator) {
-//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.textToBePresentInElementValue(locator,""));
-//    }
-
 
     public static void sendKeysToElement(String keys, By locator) {
         getElement(locator).sendKeys(keys);
