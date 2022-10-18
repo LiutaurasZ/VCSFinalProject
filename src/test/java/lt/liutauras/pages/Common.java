@@ -83,10 +83,4 @@ public class Common {
         getElement(locator).sendKeys(value);
     }
 
-    public static void waitForElementAttributeToBe(By locator, String attribute, String value) {
-
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.attributeToBe(locator, attribute, value));
-    }
-
 }
