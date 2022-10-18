@@ -1,20 +1,20 @@
 package lt.liutauras.tests.pegasas;
 
-import lt.liutauras.pages.pegasas.KnygosPage;
+import lt.liutauras.pages.pegasas.BooksPage;
 import lt.liutauras.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class KnygosTest extends TestBase {
+public class BooksTest extends TestBase {
 
     @BeforeMethod
     @Override
     public void setUp() {
         super.setUp();
-        KnygosPage.open("https://www.pegasas.lt/knygos/");
-        KnygosPage.closePrivacyConfirmation();                          
+        BooksPage.open("https://www.pegasas.lt/knygos/");
+        BooksPage.closePrivacyConfirmation();
     }
 
     @DataProvider(name = "DataProviderForAddBookToCart")
@@ -30,10 +30,10 @@ public class KnygosTest extends TestBase {
     private void testAddBookToCart(String expectedBooksAmount) {
         String actualBookAmount;
 
-        KnygosPage.clickBook();
-        KnygosPage.inputBooksAmount(expectedBooksAmount);
-        KnygosPage.addBookToCart();
-        actualBookAmount = KnygosPage.readCartCounter();
+        BooksPage.clickBook();
+        BooksPage.inputBooksAmount(expectedBooksAmount);
+        BooksPage.addBookToCart();
+        actualBookAmount = BooksPage.readCartCounter();
 
         Assert.assertEquals(actualBookAmount, expectedBooksAmount);
 
@@ -57,16 +57,16 @@ public class KnygosTest extends TestBase {
         String actualPriceFrom;
         String actualPriceTo;
 
-        KnygosPage.inputPriceFrom(expectedPriceFrom);
-        KnygosPage.inputPriceTo(expectedPriceTo);
+        BooksPage.inputPriceFrom(expectedPriceFrom);
+        BooksPage.inputPriceTo(expectedPriceTo);
 
-        KnygosPage.clickSortOrderFromDropdown(priceOrderFromMinToMax);
-        actualPriceFrom = KnygosPage.readPriceOfFirstBookOnList()
+        BooksPage.clickSortOrderFromDropdown(priceOrderFromMinToMax);
+        actualPriceFrom = BooksPage.readPriceOfFirstBookOnList()
                 .replace(" €", "")
                 .replace(",", ".");
 
-        KnygosPage.clickSortOrderFromDropdown(priceOrderFromMaxToMin);
-        actualPriceTo = KnygosPage.readPriceOfFirstBookOnList()
+        BooksPage.clickSortOrderFromDropdown(priceOrderFromMaxToMin);
+        actualPriceTo = BooksPage.readPriceOfFirstBookOnList()
                 .replace(" €", "")
                 .replace(",", ".");
 

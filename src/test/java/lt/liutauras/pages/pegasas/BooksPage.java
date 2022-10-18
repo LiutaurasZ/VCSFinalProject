@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 
-public class KnygosPage {
+public class BooksPage {
 
     public static void open(String url) {
         Common.openUrl(url);
@@ -15,35 +15,35 @@ public class KnygosPage {
     public static void closePrivacyConfirmation() {
         Common.waitForElementToBeClickable(Locators.Pegasas.formPrivacyConfirmation);
         try {
-            Common.clickElement(Locators.Pegasas.Knygos.buttonAllowOptions);
+            Common.clickElement(Locators.Pegasas.Books.buttonAllowOptions);
         } catch (ElementClickInterceptedException ignored) {
         }
 
     }
 
     public static void clickBook() {
-        Common.clickElement(Locators.Pegasas.Knygos.bookElement);
+        Common.clickElement(Locators.Pegasas.Books.bookElement);
     }
 
     public static void addBookToCart() {
-        Common.clickElement(Locators.Pegasas.Knygos.buttonAddToCart);
+        Common.clickElement(Locators.Pegasas.Books.buttonAddToCart);
     }
 
     public static void inputBooksAmount(String booksAmount) {
-        Common.clearInputField(Locators.Pegasas.Knygos.bookAmountInput);
+        Common.clearInputField(Locators.Pegasas.Books.bookAmountInput);
         Common.sendKeysToElement(
                 booksAmount,
-                Locators.Pegasas.Knygos.bookAmountInput
+                Locators.Pegasas.Books.bookAmountInput
         );
     }
 
     public static String readCartCounter() {
-        return Common.getElementText(Locators.Pegasas.Knygos.cartCounter);
+        return Common.getElementText(Locators.Pegasas.Books.cartCounter);
     }
 
 
     public static void inputPriceFrom(String value) {
-        By locator = Locators.Pegasas.Knygos.priceFromInput;
+        By locator = Locators.Pegasas.Books.priceFromInput;
 
         Common.sendKeysToElement(Keys.CONTROL + "a", locator);
         Common.sendKeysToElement(value, locator);
@@ -51,7 +51,7 @@ public class KnygosPage {
     }
 
     public static void inputPriceTo(String value) {
-        By locator = Locators.Pegasas.Knygos.priceToInput;
+        By locator = Locators.Pegasas.Books.priceToInput;
 
         Common.sendKeysToElement(Keys.CONTROL + "a", locator);
         Common.sendKeysToElement(value, locator);
@@ -61,18 +61,18 @@ public class KnygosPage {
 
     public static void clickSortOrderFromDropdown(String value) {
         Common.selectOptionByValue(
-                Locators.Pegasas.Knygos.dropDownToSort,
+                Locators.Pegasas.Books.dropDownToSort,
                 value
         );
     }
 
     public static String readPriceOfFirstBookOnList() {
         try {
-            Common.waitForInvisibilityOfElement(Locators.Pegasas.Knygos.spinnerElement);
+            Common.waitForInvisibilityOfElement(Locators.Pegasas.Books.spinnerElement);
         } catch (Exception ignore){}
 
         try {
-            return Common.getElementText(Locators.Pegasas.Knygos.firstItemOnList);
+            return Common.getElementText(Locators.Pegasas.Books.firstItemOnList);
         } catch (Exception e) {
             e.printStackTrace();
         }

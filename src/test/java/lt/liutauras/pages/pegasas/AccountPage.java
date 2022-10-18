@@ -14,7 +14,7 @@ public class AccountPage {
     public static void closePrivacyConfirmation() {
         Common.waitForElementToBeClickable(Locators.Pegasas.formPrivacyConfirmation);
         try {
-            Common.clickElement(Locators.Pegasas.Knygos.buttonAllowOptions);
+            Common.clickElement(Locators.Pegasas.Books.buttonAllowOptions);
         } catch (ElementClickInterceptedException ignored) {
         }
 

@@ -23,7 +23,7 @@ public class Locators {
             public static By accountStatus = By.xpath("//button[@id='dropdown-basic']");
         }
 
-        public static class Knygos {
+        public static class Books {
             public static By buttonAllowOptions = By.xpath(
                     "//a[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection']");
             public static By bookElement = By.xpath("//div[@id='lupa-search-result-product-card'][1]");
