@@ -45,15 +45,15 @@ public class KnygosPage {
     public static void inputPriceFrom(String value) {
         By locator = Locators.Pegasas.Knygos.priceFromInput;
 
-        Common.sendKeysToElement(Keys.CONTROL+"a", locator);
+        Common.sendKeysToElement(Keys.CONTROL + "a", locator);
         Common.sendKeysToElement(value, locator);
-        Common.sendSpecialKeysToElement(Keys.ENTER,locator);
+        Common.sendSpecialKeysToElement(Keys.ENTER, locator);
     }
 
     public static void inputPriceTo(String value) {
         By locator = Locators.Pegasas.Knygos.priceToInput;
 
-        Common.sendKeysToElement(Keys.CONTROL+"a", locator);
+        Common.sendKeysToElement(Keys.CONTROL + "a", locator);
         Common.sendKeysToElement(value, locator);
         Common.sendSpecialKeysToElement(Keys.ENTER, locator);
     }
@@ -67,9 +67,16 @@ public class KnygosPage {
     }
 
     public static String readPriceOfFirstBookOnList() {
-        Common.waitForElementToBeClickable(Locators.Pegasas.Knygos.firstItemOnList);
-        return Common.getElementText(Locators.Pegasas.Knygos.firstItemOnList);
+        try {
+            Common.waitForInvisibilityOfElement(Locators.Pegasas.Knygos.spinnerElement);
+        } catch (Exception ignore){}
 
+        try {
+            return Common.getElementText(Locators.Pegasas.Knygos.firstItemOnList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "-1";
     }
 
 }
