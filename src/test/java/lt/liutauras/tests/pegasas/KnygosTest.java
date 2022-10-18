@@ -44,21 +44,21 @@ public class KnygosTest extends TestBase {
     public Object[][] provideDataForPriceFilter() {
         return new Object[][]{
                 {"15", "60"},
-                {"34", "50"},
+                {"21", "50"},
                 {"4", "10"},
         };
     }
 
     @Test(dataProvider = "DataProviderForPriceFilterTest")
-    private void testPriceFilter(String priceFrom, String priceTo) {
+    private void testPriceFilter(String expectedPriceFrom, String expectedPriceTo) {
 
         String priceOrderFromMinToMax = "priceAscSignedOut";
         String priceOrderFromMaxToMin = "priceDescSignedOut";
         String actualPriceFrom;
         String actualPriceTo;
 
-        KnygosPage.inputPriceFrom(priceFrom);
-        KnygosPage.inputPriceTo(priceTo);
+        KnygosPage.inputPriceFrom(expectedPriceFrom);
+        KnygosPage.inputPriceTo(expectedPriceTo);
 
         KnygosPage.clickSortOrderFromDropdown(priceOrderFromMinToMax);
         actualPriceFrom = KnygosPage.readPriceOfFirstBookOnList()
@@ -70,15 +70,15 @@ public class KnygosTest extends TestBase {
                 .replace(" €", "")
                 .replace(",", ".");
 
-        Assert.assertTrue(Double.parseDouble(actualPriceFrom) >= Double.parseDouble(priceFrom),
+        Assert.assertTrue(Double.parseDouble(actualPriceFrom) >= Double.parseDouble(expectedPriceFrom),
                 String.format("Actual [%s]; Expected >= [%s] ",
                         actualPriceFrom,
-                        priceFrom)
+                        expectedPriceFrom)
         );
-        Assert.assertTrue(Double.parseDouble(actualPriceTo) <= Double.parseDouble(priceTo),
+        Assert.assertTrue(Double.parseDouble(actualPriceTo) <= Double.parseDouble(expectedPriceTo),
                 String.format("Actual [%s]; Expected <= [%s] ",
                         actualPriceTo,
-                        priceTo)
+                        expectedPriceTo)
         );
 
     }
