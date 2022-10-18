@@ -4,7 +4,6 @@ import lt.liutauras.utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +24,7 @@ public class Common {
         Driver.close();
     }
 
-    public static void sleep(int millis) {
+    public static void sleep(int millis) {   // paliktas tikrinimui
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
@@ -59,16 +58,6 @@ public class Common {
         return getElement(locator).getText();
     }
 
-    public static void doubleClickByActions(By locator) {
-        WebElement element = getElement(locator);
-
-        Actions action = new Actions(Driver.getDriver());
-        action.moveToElement(element);
-        action.doubleClick();
-        action.perform();
-    }
-
-
     public static void selectOptionByValue(By locator, String value) {
         WebElement webElement = getElement(locator);
         Select selectElement = new Select(webElement);
@@ -81,6 +70,12 @@ public class Common {
 
     public static void sendSpecialKeysToElement(Keys value, By locator) {
         getElement(locator).sendKeys(value);
+    }
+
+    public static void waitForInvisibilityOfElement(By locator) {
+        WebElement element = getElement(locator);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
 }
