@@ -63,6 +63,11 @@ public class Locators {
             public static By popupElement = By.xpath("//span[@data-cy='Toast-message']");
         }
 
+        public static class Home {
+
+
+
+        }
 
     }
 }
