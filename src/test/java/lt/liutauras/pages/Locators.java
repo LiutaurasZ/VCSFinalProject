@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class Locators {
 
     public static class Pegasas {
-
+                                        // iskeliau i virsu, nes toki pati naudoja visi testai
         public static By formPrivacyConfirmation = By.xpath("//div[@id='CybotCookiebotDialog']");
 
         public static class Login {
@@ -41,9 +41,7 @@ public class Locators {
                             "//select[@data-cy='lupa-sort-select-dropdown']");
             public static By firstItemOnList = By.xpath(
                     "//div[@data-cy='lupa-search-results-product-regular-price'][1]");
-            public static By priceSliderFrom = By.xpath("//div[@role='slider'][1]");
-            public static By priceSliderTo = By.xpath("//div[@role='slider'][2]");
-
+            public static By spinnerElement = By.xpath("//div[@class='lupa-spinner-wrapper lupa-loader']");
         }
 
         public static class Account {
@@ -71,6 +69,7 @@ public class Locators {
                     "/div[@id='lupa-search-result-product-card'][1]");
             public static By aboutItemElement = By.xpath("//div[@class='Description-description-2oF']");
             public static By itemNameElement = By.xpath("//h1[@class='ProductFullDetail-title-_Mg']");
+
         }
 
     }
