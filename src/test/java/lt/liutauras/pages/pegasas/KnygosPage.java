@@ -43,23 +43,19 @@ public class KnygosPage {
 
 
     public static void inputPriceFrom(String value) {
-        String attributeName = "aria-valuenow";
         By locator = Locators.Pegasas.Knygos.priceFromInput;
 
-        Common.clearInputField(locator);
+        Common.sendKeysToElement(Keys.CONTROL+"a", locator);
         Common.sendKeysToElement(value, locator);
         Common.sendSpecialKeysToElement(Keys.ENTER,locator);
-        Common.waitForElementAttributeToBe(Locators.Pegasas.Knygos.priceSliderFrom, attributeName, value);
     }
 
     public static void inputPriceTo(String value) {
-        String attributeName = "aria-valuenow";
         By locator = Locators.Pegasas.Knygos.priceToInput;
 
-        Common.clearInputField(locator);
+        Common.sendKeysToElement(Keys.CONTROL+"a", locator);
         Common.sendKeysToElement(value, locator);
         Common.sendSpecialKeysToElement(Keys.ENTER, locator);
-        Common.waitForElementAttributeToBe(Locators.Pegasas.Knygos.priceSliderTo, attributeName, value);
     }
 
 
