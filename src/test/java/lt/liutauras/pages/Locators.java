@@ -40,8 +40,7 @@ public class Locators {
                     "//div[@id='lupa-search-results-products']" +
                             "//select[@data-cy='lupa-sort-select-dropdown']");
             public static By firstItemOnList = By.xpath(
-                    "//div[@id='lupa-search-result-product-card'][1]" +
-                            "//div[@data-cy='lupa-search-results-product-regular-price']");
+                    "//div[@data-cy='lupa-search-results-product-regular-price'][1]");
             public static By priceSliderFrom = By.xpath("//div[@role='slider'][1]");
             public static By priceSliderTo = By.xpath("//div[@role='slider'][2]");
 
@@ -64,9 +63,14 @@ public class Locators {
         }
 
         public static class Home {
-
-
-
+            public static By searchBoxInput = By.xpath("//div[@class='d-none d-xl-block']" +
+                    "//input[@class='lupa-search-box-input-field']");
+            public static By buttonSearch = By.xpath("//button[@id='search-desktop-trigger']");
+            public static By searchResultElement = By.xpath("//h1[@class='lupa-result-page-title']/span[2]");
+            public static By bookElement = By.xpath("//div[@class='lupa-products']" +
+                    "/div[@id='lupa-search-result-product-card'][1]");
+            public static By aboutItemElement = By.xpath("//div[@class='Description-description-2oF']");
+            public static By itemNameElement = By.xpath("//h1[@class='ProductFullDetail-title-_Mg']");
         }
 
     }

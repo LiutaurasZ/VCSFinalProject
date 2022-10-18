@@ -2,6 +2,7 @@ package lt.liutauras.tests.pegasas;
 
 import lt.liutauras.pages.pegasas.HomePage;
 import lt.liutauras.tests.TestBase;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,25 +14,42 @@ public class HomeTest extends TestBase {
     public void setUp() {
         super.setUp();
         HomePage.open("https://www.pegasas.lt/");
+        HomePage.closePrivacyConfirmation();
 
     }
 
-    @DataProvider(name = "DataProviderForSearchBar")
-    public Object[][] provideDataForSearcBar() {
+    @DataProvider(name = "DataProviderForSearchBox")
+    public Object[][] provideDataForSearcBox() {
         return new Object[][]{
-                {"Kingas"},
-                {"Prienai"},
-                {"Star Wars"},
+               {"King"},
+               {"Asimov"},
+               {"Star Wars"},
 
         };
     }
-    @Test
-    public void testSearchBar(){
+    @Test(dataProvider = "DataProviderForSearchBox")
+    public void testSearchBox(String expectedSearchString){
+
+        boolean actualSearchStringFound;
+        int searchResultNumber;
+
+        HomePage.inputSearchString(expectedSearchString);
+        HomePage.clickSearchButton();
+        searchResultNumber = Integer.parseInt(
+                HomePage.readSearchResultsNumber()
+                        .replace("(","")
+                        .replace(")","")
+        );
 
 
+        if (searchResultNumber == 0) {
+            Assert.assertTrue(true);
+        } else{
 
+            HomePage.clickBook();
+            actualSearchStringFound = HomePage.lookForSearchedStringInDescription(expectedSearchString);
 
-
-
+            Assert.assertTrue(actualSearchStringFound);
+        }
     }
 }
