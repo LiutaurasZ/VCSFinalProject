@@ -7,7 +7,6 @@
             <class name="lt.liutauras.tests.pegasas.AccountTest"/>
             <class name="lt.liutauras.tests.pegasas.HomeTest"/>
             <class name="lt.liutauras.tests.pegasas.KnygosTest"/>
-            <class name="lt.liutauras.tests.pegasas.LoginTest"/>
         </classes>
     </test>
 </suite>
