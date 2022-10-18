@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Testing Pegasas" parallel="methods" thread-count="4">
-    <test name="Demo Test">
+<suite name="Testing Pegasas.lt" parallel="methods" thread-count="4">
+    <test name="All Tests">
         <classes>
             <class name="lt.liutauras.tests.pegasas.LoginTest"/>
-
+            <class name="lt.liutauras.tests.pegasas.AccountTest"/>
+            <class name="lt.liutauras.tests.pegasas.HomeTest"/>
+            <class name="lt.liutauras.tests.pegasas.KnygosTest"/>
+            <class name="lt.liutauras.tests.pegasas.LoginTest"/>
         </classes>
     </test>
 </suite>
