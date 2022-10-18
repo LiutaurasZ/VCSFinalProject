@@ -34,8 +34,8 @@ public class AccountTest extends TestBase {
             String userFirstName, String userLastName,
             String userPhone, String userPassword) {
 
-        String expectedUpdateStatus = "Duomenys sėkmingai atnaujinti";
-        String actualUpdateStatus;
+        String expectedUpdateMessage = "Duomenys sėkmingai atnaujinti";
+        String actualUpdateMessage;
 
         AccountPage.clickAccountInfoFromList();
         AccountPage.clickAccountEditButton();
@@ -45,9 +45,9 @@ public class AccountTest extends TestBase {
         AccountPage.enterUserPhone(userPhone);
         AccountPage.enterUserPassword(userPassword);
         AccountPage.clickSaveButton();
-        actualUpdateStatus = AccountPage.readUpdateStatus();
+        actualUpdateMessage = AccountPage.readUpdateStatus();
 
-        Assert.assertEquals(actualUpdateStatus, expectedUpdateStatus);
+        Assert.assertEquals(actualUpdateMessage, expectedUpdateMessage);
 
     }
 
