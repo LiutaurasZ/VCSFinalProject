@@ -8,7 +8,7 @@ __1. Logging in to account using valid email and valid password:__
    * enter valid email address into `El. paštas` field;
    * enter valid password into `Slaptažodis` field;
    * click  `Prisijungti` button;
-   * check if `Mano paskyra` button appears instead of `Prisijungti` on the right top corner.
+   * check if `Mano paskyra` button appears instead of `Prisijungti` in the right top corner.
 
 **2. Add a book to the shopping cart:**
    * open `Knygos` page;
@@ -26,7 +26,7 @@ __1. Logging in to account using valid email and valid password:__
    * click `Kaina nuo didžiausios` from drop down list `Prekių rikiavimas` to sort books by price in descending order;
    * check if the price in the field `Iki:` is higher than or equal to the price of the first book on the list;
 
-**4. Search for a books in Search bar:**
+**4. Search for books in Search bar:**
    * open `Home` page;
    * enter keyword into the search bar;
    * click `Search` button;
@@ -42,4 +42,4 @@ __5. Update account information:__
    * enter a new last name  in the field `Pavardė`
    * enter a new phone number in the field `Mobilaus telefono numeris`
    * click `Išsaugoti` button;
-   * Check if popup message `Duomenys sėkmingai atnaujinti` appears
+   * Check if popup message `Duomenys sėkmingai atnaujinti` appears.
